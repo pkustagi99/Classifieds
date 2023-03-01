@@ -1,0 +1,45 @@
+Project has 2 roles -> Admin and User
+
+User
+    id, name, phone, email, password, address, department, type,status, createdOn
+        type: 1 -> Admin -> will be manually added into the DB
+        type: 2 -> User i.e. Employee using Classifieds -> will follow general registration and by default their status
+                    will be active until admin deactivates them
+
+        status: 1 -> Activate user -> User can view all the application and post classifieds
+        status: 2 -> Deactivate User -> User cannot view the classifieds
+
+Category
+    id, title, createdOn
+
+Classifieds
+    id, categoryId, status, headline, productName, brand, condition, description, price, pictures, lastUpdatedOn
+        status -> 0 pending
+        status -> 1 approved -> display to user
+        status -> 2 rejected
+        status -> 3 sold
+        condition -> Brand new(Seal Packed), Lightly Used, Moderately Used, Heavily Used,
+                     Damaged/Dented, Not Working
+
+Order
+    id, classifiedId, fromUserId, toUserId, proposedPrice, status, lastUpdatedOn
+        status -> 0 requested for purchase
+        status -> 1 approved i.e. agreed to sell -> buyer gets option to proceed with payment & complete the transaction
+        status -> 2 rejected i.e. not interested to sell
+        status -> 3 payment processed -> product sold -> stop showing classified going forward
+
+Relationships
+    1 User can post many Classifieds
+    1 User can buy many products as listed in classifieds
+    1 User can have many Orders
+
+------------------------------------------------------------------------------------------------------------------------
+
+MVC Architecture ( Used to breakdown and arrive at solution to given project requirements)
+    1.Model      -> Create Models, i.e. Classes and Tables in the database
+    2.View       -> Create User Interface/Console menu
+    3.Controller -> Create Logical Units i.e. Algorithms/Services
+
+
+
+
